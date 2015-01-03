@@ -129,7 +129,7 @@ class Simple_Google_News_Sitemap {
 	private function set_locale() {
 
 		$plugin_i18n = new Simple_Google_News_Sitemap_i18n();
-		$plugin_i18n->set_domain( $this->get_simple_google_news_sitemap() );
+		$plugin_i18n->set_domain( $this->get_plugin_name() );
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -147,7 +147,7 @@ class Simple_Google_News_Sitemap {
 
 		$plugin_public = new Simple_Google_News_Sitemap_Public( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_filter( 'feed_content_type', $plugin_public, 'feed_content_type' );
+		$this->loader->add_filter( 'feed_content_type', $plugin_public, 'feed_content_type', 10, 2 );
 		$this->loader->add_filter( 'query_vars', $plugin_public, 'query_vars' );
 
 		$this->loader->add_action( 'init', $plugin_public, 'init' );

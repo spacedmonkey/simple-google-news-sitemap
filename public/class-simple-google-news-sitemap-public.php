@@ -58,14 +58,14 @@ class Simple_Google_News_Sitemap_Public {
 	 *
 	 */
 	public function init(){
-		add_rewrite_rule('^sitemap_news.xml', 'index.php?'.$this->plugin_name.'=1', 'top' );
+		add_rewrite_rule('sitemap_news\.xml?$', 'index.php?'.$this->plugin_name.'=1', 'top' );
 	}
 
 	/**
 	 *
 	 */
 	public function template_redirect(){
-		if( get_query_var( $this->plugin_name ) === 1){
+		if( get_query_var( $this->plugin_name ) === "1"){
 			include 'partials/simple-google-news-sitemap-public-display.php';
 			exit();
 		}
@@ -76,7 +76,7 @@ class Simple_Google_News_Sitemap_Public {
 	 */
 	public function pre_get_posts($query){
 
-		if ( !is_admin() && $query->is_main_query() && $query->query_vars[$this->plugin_name] == '1') {
+		if ( !is_admin() && $query->is_main_query() && isset($query->query_vars[$this->plugin_name]) && $query->query_vars[$this->plugin_name] == '1') {
 
 			$query->set( 'post_type', 'post' );
 
@@ -99,7 +99,11 @@ class Simple_Google_News_Sitemap_Public {
 	 * @return mixed
 	 */
 	public function feed_content_type( $content_type, $type ) {
-		$content_type['google-news'] = 'text/xml';
+		if($type == $this->plugin_name){
+			$content_type = 'text/xml';
+		}
+
+		return $content_type;
 
 		return $content_type;
 	}

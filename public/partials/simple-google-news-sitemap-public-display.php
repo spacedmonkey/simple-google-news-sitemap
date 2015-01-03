@@ -12,7 +12,7 @@
  * @subpackage Simple_Google_News_Sitemap/public/partials
  */
 
-header('Content-Type: ' . feed_content_type('google-news') . '; charset=' . get_option('blog_charset'), true);
+header('Content-Type: ' . feed_content_type($this->plugin_name) . '; charset=' . get_option('blog_charset'), true);
 echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>';
 
 ?>
