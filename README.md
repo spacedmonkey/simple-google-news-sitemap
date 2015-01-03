@@ -1,0 +1,2 @@
+simple-google-news-sitemaps
+===========================
