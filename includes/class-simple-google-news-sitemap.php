@@ -6,7 +6,7 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the dashboard.
  *
- * @link       http://example.com
+ * @link       http://www.jonathandavidharris.co.uk
  * @since      1.0.0
  *
  * @package    Simple_Google_News_Sitemap
@@ -145,10 +145,14 @@ class Simple_Google_News_Sitemap {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Simple_Google_News_Sitemap_Public( $this->get_simple_google_news_sitemap(), $this->get_version() );
+		$plugin_public = new Simple_Google_News_Sitemap_Public( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->loader->add_filter( 'feed_content_type', $plugin_public, 'feed_content_type' );
+		$this->loader->add_filter( 'query_vars', $plugin_public, 'query_vars' );
+
+		$this->loader->add_action( 'init', $plugin_public, 'init' );
+		$this->loader->add_action( 'pre_get_posts', $plugin_public, 'pre_get_posts' );
+		$this->loader->add_action( 'template_redirect', $plugin_public, 'template_redirect' );
 
 	}
 

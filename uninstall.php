@@ -19,7 +19,7 @@
  * For more information, see the following discussion:
  * https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/pull/123#issuecomment-28541913
  *
- * @link       http://example.com
+ * @link       http://www.jonathandavidharris.co.uk
  * @since      1.0.0
  *
  * @package    Simple_Google_News_Sitemap
@@ -29,3 +29,5 @@
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
+
+flush_rewrite_rules();

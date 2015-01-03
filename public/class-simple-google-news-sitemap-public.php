@@ -3,7 +3,7 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       http://example.com
+ * @link       http://www.jonathandavidharris.co.uk
  * @since      1.0.0
  *
  * @package    Simple_Google_News_Sitemap
@@ -27,16 +27,16 @@ class Simple_Google_News_Sitemap_Public {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $simple_google_news_sitemap    The ID of this plugin.
+	 * @var      string $plugin_name The ID of this plugin.
 	 */
-	private $simple_google_news_sitemap;
+	private $plugin_name;
 
 	/**
 	 * The version of this plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $version    The current version of this plugin.
+	 * @var      string $version The current version of this plugin.
 	 */
 	private $version;
 
@@ -44,60 +44,73 @@ class Simple_Google_News_Sitemap_Public {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @var      string    $simple_google_news_sitemap       The name of the plugin.
-	 * @var      string    $version    The version of this plugin.
+	 * @var      string $plugin_name The name of the plugin.
+	 * @var      string $version The version of this plugin.
 	 */
-	public function __construct( $simple_google_news_sitemap, $version ) {
+	public function __construct( $plugin_name, $version ) {
 
-		$this->simple_google_news_sitemap = $simple_google_news_sitemap;
-		$this->version = $version;
+		$this->plugin_name = $plugin_name;
+		$this->version     = $version;
 
 	}
 
 	/**
-	 * Register the stylesheets for the public-facing side of the site.
 	 *
-	 * @since    1.0.0
 	 */
-	public function enqueue_styles() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Simple_Google_News_Sitemap_Public_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Simple_Google_News_Sitemap_Public_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_style( $this->simple_google_news_sitemap, plugin_dir_url( __FILE__ ) . 'css/simple-google-news-sitemap-public.css', array(), $this->version, 'all' );
-
+	public function init(){
+		add_rewrite_rule('^sitemap_news.xml', 'index.php?'.$this->plugin_name.'=1', 'top' );
 	}
 
 	/**
-	 * Register the stylesheets for the public-facing side of the site.
 	 *
-	 * @since    1.0.0
 	 */
-	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Simple_Google_News_Sitemap_Public_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Simple_Google_News_Sitemap_Public_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_script( $this->simple_google_news_sitemap, plugin_dir_url( __FILE__ ) . 'js/simple-google-news-sitemap-public.js', array( 'jquery' ), $this->version, false );
-
+	public function template_redirect(){
+		if( get_query_var( $this->plugin_name ) === 1){
+			include 'partials/simple-google-news-sitemap-public-display.php';
+			exit();
+		}
 	}
 
+	/**
+	 * @param $query
+	 */
+	public function pre_get_posts($query){
+
+		if ( !is_admin() && $query->is_main_query() && $query->query_vars[$this->plugin_name] == '1') {
+
+			$query->set( 'post_type', 'post' );
+
+			$query->set('date_query', array(
+					array(
+						'column' => 'post_date_gmt',
+						'after'  => '2 days ago',
+					)
+				)
+			);
+			$query->set('posts_per_page', 1000 );
+
+		}
+	}
+
+	/**
+	 * @param $content_type
+	 * @param $type
+	 *
+	 * @return mixed
+	 */
+	public function feed_content_type( $content_type, $type ) {
+		$content_type['google-news'] = 'text/xml';
+
+		return $content_type;
+	}
+
+	/**
+	 * @param $query_vars
+	 *
+	 * @return array
+	 */
+	public function query_vars( $query_vars ) {
+		$query_vars[] = $this->plugin_name;
+		return $query_vars;
+	}
 }

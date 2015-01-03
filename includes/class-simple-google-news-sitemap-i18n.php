@@ -6,7 +6,7 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @link       http://example.com
+ * @link       http://www.jonathandavidharris.co.uk
  * @since      1.0.0
  *
  * @package    Simple_Google_News_Sitemap
