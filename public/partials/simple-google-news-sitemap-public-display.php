@@ -13,7 +13,7 @@
  */
 
 $wp_lang = get_bloginfo('language');
-$lang_array = explode("_", $wp_lang);
+$lang_array = explode("-", $wp_lang);
 $lang = $lang_array[0];
 $lang = apply_filters('sgns-lang', $lang);
 $site_name = get_bloginfo('name');
