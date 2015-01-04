@@ -57,37 +57,53 @@ class Simple_Google_News_Sitemap_Public {
 	/**
 	 *
 	 */
-	public function init(){
-		add_rewrite_rule('^sitemap_news.xml', 'index.php?'.$this->plugin_name.'=1', 'top' );
+	public function init() {
+		add_rewrite_rule( '^sitemap_news.xml$', 'index.php?' . $this->plugin_name . '=1', 'top' );
 	}
 
 	/**
 	 *
 	 */
-	public function template_redirect(){
-		if( get_query_var( $this->plugin_name ) === 1){
+	public function template_redirect() {
+		if ( get_query_var( $this->plugin_name ) === '1' ) {
 			include 'partials/simple-google-news-sitemap-public-display.php';
 			exit();
 		}
 	}
 
 	/**
+	 * Hook into redirect_canonical to stop trailing slashes on sitemap.xml URLs
+	 *
+	 * @param string $redirect The redirect URL currently determined.
+	 *
+	 * @return bool|string $redirect
+	 */
+	public function canonical( $redirect ) {
+		$site_map = get_query_var( $this->plugin_name );
+		if ( ! empty( $site_map ) ) {
+			return false;
+		}
+
+		return $redirect;
+	}
+
+	/**
 	 * @param $query
 	 */
-	public function pre_get_posts($query){
+	public function pre_get_posts( $query ) {
 
-		if ( !is_admin() && $query->is_main_query() && $query->query_vars[$this->plugin_name] == '1') {
+		if ( ! is_admin() && $query->is_main_query() && isset( $query->query_vars[ $this->plugin_name ] ) && $query->query_vars[ $this->plugin_name ] == '1' ) {
 
 			$query->set( 'post_type', 'post' );
 
-			$query->set('date_query', array(
+			$query->set( 'date_query', array(
 					array(
 						'column' => 'post_date_gmt',
 						'after'  => '2 days ago',
 					)
 				)
 			);
-			$query->set('posts_per_page', 1000 );
+			$query->set( 'posts_per_page', 1000 );
 
 		}
 	}
@@ -111,6 +127,7 @@ class Simple_Google_News_Sitemap_Public {
 	 */
 	public function query_vars( $query_vars ) {
 		$query_vars[] = $this->plugin_name;
+
 		return $query_vars;
 	}
 }

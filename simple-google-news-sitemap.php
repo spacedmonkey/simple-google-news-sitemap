@@ -1,12 +1,7 @@
 <?php
 
 /**
- * The plugin bootstrap file
- *
- * This file is read by WordPress to generate the plugin information in the plugin
- * Dashboard. This file also includes all of the dependencies used by the plugin,
- * registers the activation and deactivation functions, and defines a function
- * that starts the plugin.
+ * Simple url that adds a google new sitemap
  *
  * @link              http://www.jonathandavidharris.co.uk
  * @since             1.0.0
@@ -15,7 +10,7 @@
  * @wordpress-plugin
  * Plugin Name:       Simple Google News Sitemap
  * Plugin URI:        https://github.com/spacedmonkey/simple-google-news-sitemap
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress dashboard.
+ * Description:       Simple url that adds a google new sitemap.
  * Version:           1.0.0
  * Author:            Jonathan Harris
  * Author URI:        http://www.jonathandavidharris.co.uk/

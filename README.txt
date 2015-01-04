@@ -1,9 +1,9 @@
-=== Simple Google News Sitemaps ===
+=== Simple Google News Sitemap ===
 
 Contributors: spacedmonkey
 Plugin Name: Simple Google News Sitemaps
 Plugin URI: http://www.jonathandavidharris.co.uk/
-Tags: rss, post types, feed
+Tags: sitemap, google news sitemap, feed
 Author URI: http://jonthandavidharris.co.uk/
 Author:  Jonathan Harris
 Requires at least: 3.2, PHP5.2
@@ -12,9 +12,11 @@ Stable tag: 2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
+Simple plugin that adds a Google New Sitemap.
 
 == Description ==
 
+Simple plugin that adds a Google New Sitemap. To use this plugin, simply use install and activate it. To view your sitemap, just go /sitemap_news.xml.
 
 == Installation ==
 
@@ -23,8 +25,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Changelog ==
 
-
 = Version 1 =
+
 Final release and bug fixs.
 
 == Screenshots ==

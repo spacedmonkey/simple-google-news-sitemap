@@ -1,7 +1,8 @@
 # Simple Google News Sitemap 
 
-If you wish to follow the development of this plugin follow me on twitter [@thespacedmonkey](https://twitter.com/thespacedmonkey)
+Simple plugin that adds a Google New Sitemap. To use this plugin, simply use install and activate it. To view your sitemap, just go /sitemap_news.xml.
 
+If you wish to follow the development of this plugin follow me on twitter [@thespacedmonkey](https://twitter.com/thespacedmonkey)
 
 ## Installation
 
