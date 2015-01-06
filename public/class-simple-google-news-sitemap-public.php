@@ -106,6 +106,13 @@ class Simple_Google_News_Sitemap_Public {
 			);
 			$query->set( 'posts_per_page', 1000 );
 
+			$value = get_option( $this->plugin_name, array( 'sgns_category' => 0 ));
+			$cat   = absint( $value['sgns_category'] );
+
+			if( !empty( $cat ) ){
+				$query->set( 'cat', $cat );
+			}
+
 		}
 	}
 
