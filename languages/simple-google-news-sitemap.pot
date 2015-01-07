@@ -1,0 +1,32 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Simple Google news sitemap\n"
+"POT-Creation-Date: 2015-01-07 17:25-0000\n"
+"PO-Revision-Date: 2015-01-07 17:25-0000\n"
+"Last-Translator: \n"
+"Language-Team: Spacedmonkey <jon@spacedmonkey.co.uk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.3\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: /Volumes/UserSpace/Users/jonathanharrisAdmin/"
+"Documents/Vagrants/vagrant-keystone/personaldev/keystone-core/htdocs/wp-"
+"content/plugins/simple-google-news-sitemap\n"
+
+# admin/class-simple-google-news-sitemap-admin.php:67
+msgid "Google News Sitemaps Options"
+msgstr ""
+
+# admin/class-simple-google-news-sitemap-admin.php:75
+msgid "Limit Post Category"
+msgstr ""
+
+# admin/class-simple-google-news-sitemap-admin.php:85
+msgid "Show all categories"
+msgstr ""
+
+# admin/class-simple-google-news-sitemap-admin.php:89
+msgid "Only show posts from this category in the news feed"
+msgstr ""

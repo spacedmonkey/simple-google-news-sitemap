@@ -58,7 +58,7 @@ class Simple_Google_News_Sitemap_Public {
 	 *
 	 */
 	public function init() {
-		add_rewrite_rule('sitemap_news\.xml$', 'index.php?'.$this->plugin_name.'=1', 'top' );
+		add_rewrite_rule( 'sitemap_news\.xml$', 'index.php?' . $this->plugin_name . '=1', 'top' );
 	}
 
 	/**
@@ -92,7 +92,7 @@ class Simple_Google_News_Sitemap_Public {
 	 */
 	public function pre_get_posts( $query ) {
 
-		if ( !is_admin() && $query->is_main_query() && isset($query->query_vars[$this->plugin_name]) && $query->query_vars[$this->plugin_name] == '1') {
+		if ( ! is_admin() && $query->is_main_query() && isset( $query->query_vars[ $this->plugin_name ] ) && $query->query_vars[ $this->plugin_name ] == '1' ) {
 
 
 			$query->set( 'post_type', 'post' );
@@ -106,10 +106,11 @@ class Simple_Google_News_Sitemap_Public {
 			);
 			$query->set( 'posts_per_page', 1000 );
 
-			$value = get_option( $this->plugin_name, array( 'sgns_category' => 0 ));
+			// Only show posts from selected category
+			$value = get_option( $this->plugin_name, array( 'sgns_category' => 0 ) );
 			$cat   = absint( $value['sgns_category'] );
 
-			if( !empty( $cat ) ){
+			if ( ! empty( $cat ) ) {
 				$query->set( 'cat', $cat );
 			}
 
@@ -123,7 +124,7 @@ class Simple_Google_News_Sitemap_Public {
 	 * @return mixed
 	 */
 	public function feed_content_type( $content_type, $type ) {
-		if($type == $this->plugin_name){
+		if ( $type == $this->plugin_name ) {
 			$content_type = 'text/xml';
 		}
 

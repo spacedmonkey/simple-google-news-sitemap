@@ -2,34 +2,29 @@
 
 Simple plugin that adds a Google New Sitemap. To use this plugin, simply use install and activate it. To view your sitemap, just go /sitemap_news.xml.
 
-If you wish to follow the development of this plugin follow me on twitter [@thespacedmonkey](https://twitter.com/thespacedmonkey)
+If you wish to follow the development of this plugin follow me on twitter [@thespacedmonkey](https://twitter.com/thespacedmonkey).
 
-## Installation
+## Options
 
-This section describes how to install the plugin and get it working.
+In the general settings page, there is an option to show posts from one category in the news sitemap. 
 
+## Filters
 
-### Using The WordPress Dashboard 
+### sgns-url
 
-1. Navigate to the 'Add New' in the plugins dashboard
-2. Search for 'simple-google-news-sitemap'
-3. Click 'Install Now'
-4. Activate the plugin on the Plugin dashboard
+Filter the url that is output in the new feed
 
-### Uploading in WordPress Dashboard
+### sgns-keywords
 
-1. Navigate to the 'Add New' in the plugins dashboard
-2. Navigate to the 'Upload' area
-3. Select `simple-google-news-sitemap.zip` from your computer
-4. Click 'Install Now'
-5. Activate the plugin in the Plugin dashboard
+Filter the keywords that is output in the new feed
 
-### Using FTP 
-1. Download `simple-google-news-sitemap.zip`
-2. Extract the `simple-google-news-sitemap` directory to your computer
-3. Upload the `simple-google-news-sitemap` directory to the `/wp-content/plugins/` directory
-4. Activate the plugin in the Plugin dashboard
+### sgns-lang
 
+Filter the publication language that is output in the new feed
+
+### sgns-sitename
+
+Filter the publication name that is output in the new feed
 
 ## GitHub Updater
 
@@ -62,3 +57,4 @@ There are various ways you can contribute:
 * Raise an issue on GitHub.
 * Send us a Pull Request with your bug fixes and/or new features.
 * Provide feedback and suggestions on enhancements.
+* Add translations

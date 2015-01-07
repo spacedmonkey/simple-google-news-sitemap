@@ -27,11 +27,7 @@ Simple plugin that adds a Google New Sitemap. To use this plugin, simply use ins
 
 = Version 1 =
 
-Final release and bug fixs.
-
-== Screenshots ==
-
-1. screenshot-1.png 
+Final release and bug fixes.
 
 == Upgrade Notice ==
 
