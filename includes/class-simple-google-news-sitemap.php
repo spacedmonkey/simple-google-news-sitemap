@@ -73,7 +73,9 @@ class Simple_Google_News_Sitemap {
 
 		$this->load_dependencies();
 		$this->set_locale();
+		$this->define_admin_hooks();
 		$this->define_public_hooks();
+
 
 	}
 
@@ -113,6 +115,12 @@ class Simple_Google_News_Sitemap {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-simple-google-news-sitemap-public.php';
 
+		/**
+		 * The class responsible for defining all actions that occur in the admin-facing
+		 * side of the site.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-simple-google-news-sitemap-admin.php';
+
 		$this->loader = new Simple_Google_News_Sitemap_Loader();
 
 	}
@@ -132,6 +140,23 @@ class Simple_Google_News_Sitemap {
 		$plugin_i18n->set_domain( $this->get_plugin_name() );
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
+
+	}
+
+	/**
+	 * Register all of the hooks related to the dashboard functionality
+	 * of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function define_admin_hooks() {
+
+		$plugin_admin = new Simple_Google_News_Sitemap_Admin( $this->get_plugin_name(), $this->get_version() );
+
+
+
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'admin_init' );
 
 	}
 

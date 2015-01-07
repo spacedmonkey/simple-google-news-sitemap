@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Simple url that adds a google new sitemap
+ * Adds a Google news sitemap to your WordPress site
  *
  * @link              http://www.jonathandavidharris.co.uk
  * @since             1.0.0
@@ -10,7 +10,7 @@
  * @wordpress-plugin
  * Plugin Name:       Simple Google News Sitemap
  * Plugin URI:        https://github.com/spacedmonkey/simple-google-news-sitemap
- * Description:       Simple url that adds a google new sitemap.
+ * Description:       Adds a Google news sitemap to your WordPress site.
  * Version:           1.0.0
  * Author:            Jonathan Harris
  * Author URI:        http://www.jonathandavidharris.co.uk/

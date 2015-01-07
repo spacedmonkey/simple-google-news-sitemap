@@ -12,11 +12,11 @@ Stable tag: 2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Simple plugin that adds a Google New Sitemap.
+Simple plugin that adds a Google News Sitemap.
 
 == Description ==
 
-Simple plugin that adds a Google New Sitemap. To use this plugin, simply use install and activate it. To view your sitemap, just go /sitemap_news.xml.
+Simple plugin that adds a Google News Sitemap. To use this plugin, simply use install and activate it. To view your sitemap, just go /sitemap_news.xml.
 
 == Installation ==
 
@@ -27,11 +27,7 @@ Simple plugin that adds a Google New Sitemap. To use this plugin, simply use ins
 
 = Version 1 =
 
-Final release and bug fixs.
-
-== Screenshots ==
-
-1. screenshot-1.png 
+Final release and bug fixes.
 
 == Upgrade Notice ==
 
