@@ -48,7 +48,7 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>';
 						<news:name><?php echo $site_name_display;?></news:name>
 						<news:language><?php echo $lang_display;?></news:language>
 					</news:publication>
-					<news:publication_date><?php the_date('Y-m-d'); ?></news:publication_date>
+					<news:publication_date><?php echo get_the_date('Y-m-d'); ?></news:publication_date>
 					<news:title><?php the_title();?></news:title>
 					<?php if($tags):?>
 						<news:keywords><?php echo $tags; ?></news:keywords>
