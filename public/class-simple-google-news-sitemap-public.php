@@ -105,6 +105,7 @@ class Simple_Google_News_Sitemap_Public {
 				)
 			);
 			$query->set( 'posts_per_page', 1000 );
+			$query->set( 'ignore_sticky_posts', 1 );
 
 			// Only show posts from selected category
 			$value = get_option( $this->plugin_name, array( 'sgns_category' => 0 ) );
