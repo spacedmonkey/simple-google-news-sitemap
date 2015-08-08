@@ -7,7 +7,7 @@ Tags: sitemap, google news sitemap, feed
 Author URI: http://jonthandavidharris.co.uk/
 Author:  Jonathan Harris
 Requires at least: 3.2, PHP5.2
-Tested up to: 4.1
+Tested up to: 4.3
 Stable tag: 2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -24,6 +24,10 @@ Simple plugin that adds a Google News Sitemap. To use this plugin, simply use in
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
 == Changelog ==
+
+= Version 1.1 =
+
+Support for WordPress 4.3.
 
 = Version 1 =
 

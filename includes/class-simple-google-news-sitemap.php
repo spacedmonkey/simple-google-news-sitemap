@@ -69,13 +69,12 @@ class Simple_Google_News_Sitemap {
 	public function __construct() {
 
 		$this->plugin_name = 'simple-google-news-sitemap';
-		$this->version = '1.0.0';
+		$this->version = '1.1.0';
 
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-
 
 	}
 
@@ -154,9 +153,10 @@ class Simple_Google_News_Sitemap {
 
 		$plugin_admin = new Simple_Google_News_Sitemap_Admin( $this->get_plugin_name(), $this->get_version() );
 
-
-
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'admin_init' );
+
+		// Add hock for split_shared_term
+		$this->loader->add_action( 'split_shared_term', $this, 'split_shared_term' );
 
 	}
 
@@ -179,6 +179,9 @@ class Simple_Google_News_Sitemap {
 		$this->loader->add_action( 'init', $plugin_public, 'init', 1 );
 		$this->loader->add_action( 'pre_get_posts', $plugin_public, 'pre_get_posts' );
 		$this->loader->add_action( 'template_redirect', $plugin_public, 'template_redirect' );
+
+		// Add hock for split_shared_term
+		$this->loader->add_action( 'split_shared_term', $this, 'split_shared_term' );
 
 	}
 
@@ -221,5 +224,24 @@ class Simple_Google_News_Sitemap {
 	public function get_version() {
 		return $this->version;
 	}
+
+	/**
+	 *
+	 * Support for WordPress 4.2 split terms. 
+	 *
+	 * @since     1.1.0
+	 */
+	public function split_shared_term( $old_term_id, $new_term_id, $term_taxonomy_id, $taxonomy ) {
+	   	$setting_name = $this->get_plugin_name();
+	    $settings = get_option( $setting_name, array() );
+	 
+	    // Check to see whether the stored category ID is the one that's just been split.
+	    if ( isset( $fsettings['sgns_category'] ) && $old_term_id == $fsettings['sgns_category'] && 'category' == $taxonomy ) {
+	        // We have a match, so we swap out the old category ID for the new one and resave the option.
+	        $settings['sgns_category'] = $new_term_id;
+	        update_option( $setting_name, $settings );
+	    }
+	}
+
 
 }
