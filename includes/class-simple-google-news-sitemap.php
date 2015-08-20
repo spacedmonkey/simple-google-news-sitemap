@@ -155,9 +155,6 @@ class Simple_Google_News_Sitemap {
 
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'admin_init' );
 
-		// Add hock for split_shared_term
-		$this->loader->add_action( 'split_shared_term', $this, 'split_shared_term' );
-
 	}
 
 
