@@ -11,7 +11,7 @@
  * Plugin Name:       Simple Google News Sitemap
  * Plugin URI:        https://github.com/spacedmonkey/simple-google-news-sitemap
  * Description:       Adds a Google news sitemap to your WordPress site.
- * Version:           1.0.4
+ * Version:           1.1.0
  * Author:            Jonathan Harris
  * Author URI:        http://www.jonathandavidharris.co.uk/
  * License:           GPL-2.0+
