@@ -178,7 +178,7 @@ class Simple_Google_News_Sitemap {
 		$this->loader->add_action( 'template_redirect', $plugin_public, 'template_redirect' );
 
 		// Add hock for split_shared_term
-		$this->loader->add_action( 'split_shared_term', $this, 'split_shared_term' );
+		$this->loader->add_action( 'split_shared_term', $this, 'split_shared_term', 10, 4 );
 
 	}
 
