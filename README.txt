@@ -2,7 +2,7 @@
 
 Contributors: spacedmonkey
 Plugin Name: Simple Google News Sitemaps
-Plugin URI: http://www.jonathandavidharris.co.uk/
+Plugin URI: http://www.spacedmonkey.com/
 Tags: sitemap, google news sitemap, feed
 Author URI: http://jonthandavidharris.co.uk/
 Author:  Jonathan Harris

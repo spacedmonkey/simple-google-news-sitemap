@@ -3,7 +3,7 @@
 /**
  * Adds a Google news sitemap to your WordPress site
  *
- * @link              http://www.jonathandavidharris.co.uk
+ * @link              http://www.spacedmonkey.com
  * @since             1.0.4
  * @package           Simple_Google_News_Sitemap
  *
@@ -13,7 +13,7 @@
  * Description:       Adds a Google news sitemap to your WordPress site.
  * Version:           1.1.1
  * Author:            Jonathan Harris
- * Author URI:        http://www.jonathandavidharris.co.uk/
+ * Author URI:        http://www.spacedmonkey.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       simple-google-news-sitemap
